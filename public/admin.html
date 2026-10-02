@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Admin - BOXSHOP</title>
+
+  <link
+    rel="stylesheet"
+    href="/css/style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <header class="main-header">
+
+  <div class="header-inner">
+
+    <a href="/shop.html" class="brand-logo">
+
+      <span class="brand-box">
+        B
+      </span>
+
+      <span class="brand-text">
+        <strong>BOX</strong>
+        <small>Roblox Digital Store</small>
+      </span>
+
+    </a>
+
+
+    <nav class="main-nav">
+
+      <a href="/shop.html">
+        ร้านค้า
+      </a>
+
+      <a href="/credit.html">
+        เครดิต
+      </a>
+
+      <a href="/orders.html">
+        ประวัติการซื้อ
+      </a>
+
+      <a
+        href="/admin.html"
+        class="active"
+      >
+        Admin
+      </a>
+
+    </nav>
+
+
+    <div class="header-user">
+
+      <div class="header-account">
+
+        <strong id="adminUsername">
+          กำลังโหลด...
+        </strong>
+
+        <span class="admin-badge">
+          ADMIN
+        </span>
+
+      </div>
+
+
+      <button
+        id="adminLogoutButton"
+        class="header-logout"
+      >
+        ออกจากระบบ
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+  <main class="admin-page">
+
+
+    <section class="admin-heading">
+
+      <div>
+
+        <p class="section-label">
+          ADMIN PANEL
+        </p>
+
+        <h1>
+          จัดการ BOXSHOP
+        </h1>
+
+        <p>
+          จัดการสินค้า ผู้ใช้ และคำขอเติมเครดิต
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="admin-stats">
+
+
+      <div class="admin-stat-card">
+
+        <span>
+          ผู้ใช้ทั้งหมด
+        </span>
+
+        <strong id="totalUsers">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="admin-stat-card">
+
+        <span>
+          คำขอเติมเครดิต
+        </span>
+
+        <strong id="pendingTopups">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="admin-stat-card">
+
+        <span>
+          สินค้า
+        </span>
+
+        <strong id="totalProducts">
+          0
+        </strong>
+
+      </div>
+
+
+    </section>
+
+    <section class="admin-section">
+
+      <div class="admin-section-header">
+
+        <div>
+
+          <h2>
+            คำขอเติมเครดิต
+          </h2>
+
+          <p>
+            ตรวจสอบและอนุมัติคำขอจากผู้ใช้
+          </p>
+
+        </div>
+
+
+        <button
+          id="refreshTopups"
+          class="secondary-btn"
+        >
+          รีเฟรช
+        </button>
+
+      </div>
+
+
+      <div
+        id="topupAdminList"
+        class="admin-list"
+      >
+
+        <div class="admin-loading">
+          กำลังโหลด...
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="admin-section">
+
+      <div class="admin-section-header">
+
+        <div>
+
+          <h2>
+            เพิ่มสินค้า
+          </h2>
+
+          <p>
+            เพิ่มสินค้าใหม่เข้าสู่ร้าน BOXSHOP
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <form
+        id="productForm"
+        class="admin-product-form"
+      >
+
+
+        <div class="form-row">
+
+
+          <div class="form-group">
+
+            <label>
+              ชื่อสินค้า
+            </label>
+
+            <input
+              type="text"
+              id="productName"
+              placeholder="ชื่อสินค้า"
+              maxlength="100"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              ราคา
+            </label>
+
+            <input
+              type="number"
+              id="productPrice"
+              placeholder="100"
+              min="0"
+              step="0.01"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Stock
+            </label>
+
+            <input
+              type="number"
+              id="productStock"
+              placeholder="10"
+              min="0"
+              required
+            >
+
+          </div>
+                    <div class="form-group">
+
+            <label>
+              หมวดหมู่สินค้า
+            </label>
+
+            <select id="productCategory">
+
+              <option value="เสื้อลูกสูบ">
+                เสื้อลูกสูบ
+              </option>
+
+              <option value="ชามแต่ง">
+                ชามแต่ง
+              </option>
+
+              <option value="ชุดข้างโอเพ่น">
+                ชุดข้างโอเพ่น
+              </option>
+
+              <option value="ฝาวาล์ว">
+                ฝาวาล์ว
+              </option>
+
+              <option value="อื่นๆ" selected>
+                อื่นๆ
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label>
+            รายละเอียดสินค้า
+          </label>
+
+          <textarea
+            id="productDescription"
+            placeholder="รายละเอียดสินค้า"
+            maxlength="1000"
+          ></textarea>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label>
+            URL รูปสินค้า
+          </label>
+
+          <input
+            type="url"
+            id="productImage"
+            placeholder="https://..."
+          >
+
+        </div>
+
+
+
+        <button
+          type="submit"
+          id="addProductButton"
+          class="primary-btn"
+        >
+          เพิ่มสินค้า
+        </button>
+
+
+        <div
+          id="productMessage"
+          class="form-message"
+        ></div>
+
+
+      </form>
+
+    </section>
+
+    <section class="admin-section">
+
+      <div class="admin-section-header">
+
+        <div>
+
+          <h2>
+            สินค้าในร้าน
+          </h2>
+
+          <p>
+            สินค้าที่กำลังแสดงอยู่ในร้าน
+          </p>
+
+        </div>
+
+
+        <button
+          id="refreshProducts"
+          class="secondary-btn"
+        >
+          รีเฟรช
+        </button>
+
+      </div>
+
+
+      <div
+        id="adminProductList"
+        class="admin-product-list"
+      >
+
+        <div class="admin-loading">
+          กำลังโหลด...
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="admin-section">
+
+      <div class="admin-section-header">
+
+        <div>
+
+          <h2>
+            ผู้ใช้
+          </h2>
+
+          <p>
+            รายชื่อบัญชีในระบบ
+          </p>
+
+        </div>
+
+
+        <button
+          id="refreshUsers"
+          class="secondary-btn"
+        >
+          รีเฟรช
+        </button>
+
+      </div>
+
+
+      <div
+        id="adminUserList"
+        class="admin-user-list"
+      >
+
+        <div class="admin-loading">
+          กำลังโหลด...
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <script src="/js/admin.js"></script>
+
+</body>
+
+</html>

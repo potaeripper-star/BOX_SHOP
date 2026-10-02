@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ประวัติออเดอร์ - BOXSHOP</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="orders-page">
+
+<header class="main-header">
+
+  <div class="header-inner">
+
+    <a href="/shop.html" class="brand-logo">
+      <span class="brand-box">B</span>
+
+      <span class="brand-text">
+        <strong>BOX</strong>
+        <small>Roblox Digital Store</small>
+      </span>
+    </a>
+
+
+    <nav class="main-nav">
+
+      <a href="/shop.html">
+        ร้านค้า
+      </a>
+
+      <a href="/credit.html">
+        เครดิต
+      </a>
+
+      <a href="/orders.html" class="active">
+        ประวัติการซื้อ
+      </a>
+
+    </nav>
+
+
+    <div class="header-user">
+
+      <strong id="usernameDisplay">
+        กำลังโหลด...
+      </strong>
+
+      <button
+        id="logoutButton"
+        class="header-logout"
+      >
+        ออกจากระบบ
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+  <main class="orders-container">
+
+    <section class="orders-heading">
+
+      <div>
+        <p class="section-label">ORDER HISTORY</p>
+
+        <h1>
+          ประวัติการสั่งซื้อ
+        </h1>
+
+        <p>
+          ดูรายการสินค้าที่มึงเคยซื้อทั้งหมด
+        </p>
+      </div>
+
+      <button id="refreshOrders" class="secondary-btn">
+        รีเฟรช
+      </button>
+
+    </section>
+
+
+    <section id="ordersList" class="orders-list">
+
+      <div class="orders-loading">
+        กำลังโหลดประวัติออเดอร์...
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="/js/orders.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BOXSHOP - สมัครสมาชิก</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+</head>
+
+<body class="auth-page">
+
+    <main class="auth-container">
+
+        <section class="auth-card">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    B
+                </div>
+
+                <div>
+                    <h1>BOXSHOP</h1>
+
+                    <p>
+                        Roblox Digital Store
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="auth-title">
+
+                <h2>
+                    สมัครสมาชิก
+                </h2>
+
+                <p>
+                    สร้างบัญชี BOXSHOP ของคุณ
+                </p>
+
+            </div>
+
+            <form id="registerForm">
+
+                <div class="form-group">
+
+                    <label for="username">
+                        ชื่อผู้ใช้
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="เช่น boxshop123"
+                        autocomplete="username"
+                        minlength="3"
+                        maxlength="30"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        รหัสผ่าน
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="อย่างน้อย 6 ตัวอักษร"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        ยืนยันรหัสผ่าน
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="กรอกรหัสผ่านอีกครั้ง"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+                <div
+                    id="registerMessage"
+                    class="message"
+                ></div>
+
+                <button
+                    type="submit"
+                    id="registerButton"
+                    class="primary-button"
+                >
+                    สมัครสมาชิก
+                </button>
+
+            </form>
+
+            <div class="auth-footer">
+
+                <span>
+                    มีบัญชีอยู่แล้ว?
+                </span>
+
+                <a href="/">
+                    เข้าสู่ระบบ
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/auth.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>เครดิต - BOXSHOP</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<header class="main-header">
+
+  <div class="header-inner">
+
+    <a href="/shop.html" class="brand-logo">
+      <span class="brand-box">B</span>
+
+      <span class="brand-text">
+        <strong>BOX</strong>
+        <small>Roblox Digital Store</small>
+      </span>
+    </a>
+
+
+    <nav class="main-nav">
+
+      <a href="/shop.html">
+        ร้านค้า
+      </a>
+
+      <a href="/credit.html" class="active">
+        เครดิต
+      </a>
+
+      <a href="/orders.html">
+        ประวัติการซื้อ
+      </a>
+
+    </nav>
+
+
+    <div class="header-user">
+
+      <strong id="usernameDisplay">
+        กำลังโหลด...
+      </strong>
+
+      <button
+        id="logoutButton"
+        class="header-logout"
+      >
+        ออกจากระบบ
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+  <main class="credit-page">
+
+    <section class="credit-hero">
+
+      <div>
+        <p class="section-label">MY CREDIT</p>
+
+        <h1>
+          เครดิตของฉัน
+        </h1>
+
+        <p>
+          ใช้เครดิตสำหรับซื้อสินค้าภายใน BOXSHOP
+        </p>
+      </div>
+
+      <div class="credit-balance-card">
+
+        <span>ยอดเครดิตปัจจุบัน</span>
+
+        <strong id="currentCredit">
+          ฿0.00
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <section class="credit-grid">
+
+      <!-- เติมเครดิต -->
+
+      <div class="credit-card">
+
+        <div class="card-title">
+          <h2>เติมเครดิต</h2>
+
+          <p>
+            ส่งคำขอเติมเครดิตให้ Admin ตรวจสอบ
+          </p>
+        </div>
+
+
+        <form id="topupForm">
+
+          <label for="topupAmount">
+            จำนวนเงิน
+          </label>
+
+          <div class="input-money">
+
+            <span>฿</span>
+
+            <input
+              type="number"
+              id="topupAmount"
+              min="1"
+              max="100000"
+              step="0.01"
+              placeholder="100"
+              required
+            >
+
+          </div>
+
+
+          <label for="topupReference">
+            หมายเหตุ / เลขอ้างอิง
+          </label>
+
+          <input
+            type="text"
+            id="topupReference"
+            maxlength="100"
+            placeholder="เช่น TOPUP-001"
+          >
+
+
+          <div class="topup-note">
+
+            <strong>หมายเหตุ</strong>
+
+            <p>
+              ระบบนี้เป็นระบบเติมเครดิตแบบส่งคำขอ
+              หลังจากส่งแล้วต้องรอ Admin อนุมัติ
+            </p>
+
+          </div>
+
+
+          <button
+            type="submit"
+            id="topupButton"
+            class="primary-btn"
+          >
+            ส่งคำขอเติมเครดิต
+          </button>
+
+
+          <div
+            id="topupMessage"
+            class="form-message"
+          ></div>
+
+        </form>
+
+      </div>
+
+      <div class="credit-card">
+
+        <div class="card-title">
+
+          <h2>ประวัติเติมเครดิต</h2>
+
+          <p>
+            รายการคำขอเติมเครดิตของมึง
+          </p>
+
+        </div>
+
+
+        <div id="topupHistory" class="topup-history">
+
+          <div class="empty-history">
+            กำลังโหลด...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="/js/credit.js"></script>
+
+</body>
+</html>

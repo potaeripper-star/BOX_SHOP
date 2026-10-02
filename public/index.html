@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BOXSHOP - เข้าสู่ระบบ</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+</head>
+
+<body class="auth-page">
+
+    <main class="auth-container">
+
+        <section class="auth-card">
+
+            <div class="brand">
+                <div class="brand-logo">B</div>
+
+                <div>
+                    <h1>BOXSHOP</h1>
+                    <p>Roblox Digital Store</p>
+                </div>
+            </div>
+
+            <div class="auth-title">
+                <h2>เข้าสู่ระบบ</h2>
+                <p>
+                    เข้าสู่บัญชี BOXSHOP ของคุณ
+                </p>
+            </div>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="username">
+                        ชื่อผู้ใช้
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="กรอกชื่อผู้ใช้"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        รหัสผ่าน
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="กรอกรหัสผ่าน"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+                <div
+                    id="loginMessage"
+                    class="message"
+                ></div>
+
+                <button
+                    type="submit"
+                    id="loginButton"
+                    class="primary-button"
+                >
+                    เข้าสู่ระบบ
+                </button>
+
+            </form>
+
+            <div class="auth-footer">
+
+                <span>
+                    ยังไม่มีบัญชี?
+                </span>
+
+                <a href="/register.html">
+                    สมัครสมาชิก
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BOXSHOP - ร้านค้า</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+
+<body class="shop-page">
+
+
+    <header class="main-header">
+
+        <div class="header-inner">
+
+
+            <a
+                href="/shop.html"
+                class="brand-logo"
+            >
+
+                <span class="brand-box">
+                    B
+                </span>
+
+                <span class="brand-text">
+
+                    <strong>
+                        BOX
+                    </strong>
+
+                    <small>
+                        Roblox Digital Store
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- NAV -->
+
+            <nav class="main-nav">
+
+                <a
+                    href="/shop.html"
+                    class="active"
+                >
+                    ร้านค้า
+                </a>
+
+                <a href="/credit.html">
+                    เครดิต
+                </a>
+
+                <a href="/orders.html">
+                    ประวัติการซื้อ
+                </a>
+
+            </nav>
+
+
+            <!-- USER -->
+
+            <div class="header-user">
+
+
+                <div class="user-credit">
+
+                    เครดิต
+
+                    <strong id="creditDisplay">
+                        ฿0.00
+                    </strong>
+
+                </div>
+
+
+                <strong id="usernameDisplay">
+                    กำลังโหลด...
+                </strong>
+
+
+                <button
+                    id="logoutButton"
+                    class="header-logout"
+                >
+                    ออกจากระบบ
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+    <main class="shop-main">
+
+
+        <!-- HERO -->
+
+        <section class="shop-hero">
+
+            <div>
+
+                <span class="hero-badge">
+                    BOXSHOP STORE
+                </span>
+
+                <h1>
+                    เลือกสินค้าที่คุณต้องการ
+                </h1>
+
+                <p>
+                    สินค้าพร้อมใช้งาน
+                    ซื้อด้วยเครดิตในบัญชี
+                </p>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <span>
+                    เครดิตของคุณ
+                </span>
+
+                <strong id="heroCredit">
+                    ฿0.00
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TOOLBAR -->
+
+        <section class="shop-toolbar">
+
+            <div>
+
+                <h2>
+                    สินค้าทั้งหมด
+                </h2>
+
+                <p>
+                    เลือกสินค้าแล้วกดซื้อได้เลย
+                </p>
+
+            </div>
+
+
+            <button
+                id="refreshProducts"
+                class="refresh-button"
+            >
+                ↻ รีเฟรช
+            </button>
+
+        </section>
+
+
+        <div
+            id="shopMessage"
+            class="shop-message"
+        ></div>
+
+
+        <div class="category-filter">
+
+            <button
+                class="category-btn active"
+                data-category="ทั้งหมด"
+            >
+                ทั้งหมด
+            </button>
+
+
+            <button
+                class="category-btn"
+                data-category="เสื้อลูกสูบ"
+            >
+                เสื้อลูกสูบ
+            </button>
+
+
+            <button
+                class="category-btn"
+                data-category="ชามแต่ง"
+            >
+                ชามแต่ง
+            </button>
+
+
+            <button
+                class="category-btn"
+                data-category="ชุดข้างโอเพ่น"
+            >
+                ชุดข้างโอเพ่น
+            </button>
+
+
+            <button
+                class="category-btn"
+                data-category="ฝาวาล์ว"
+            >
+                ฝาวาล์ว
+            </button>
+
+
+            <button
+                class="category-btn"
+                data-category="อื่นๆ"
+            >
+                อื่นๆ
+            </button>
+
+        </div>
+
+
+        <section
+            id="productList"
+            class="product-grid"
+        >
+
+            <div class="loading-card">
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    กำลังโหลดสินค้า...
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <div
+        id="buyModal"
+        class="modal-overlay hidden"
+    >
+
+
+        <div class="buy-modal">
+
+
+            <button
+                id="closeBuyModal"
+                class="modal-close"
+            >
+                ×
+            </button>
+
+
+
+            <!-- PRODUCT -->
+
+            <div class="modal-product">
+
+
+                <img
+                    id="modalProductImage"
+                    src=""
+                    alt="Product"
+                >
+
+
+                <div>
+
+                    <span
+                        id="modalProductStock"
+                        class="modal-stock"
+                    >
+                        Stock 0
+                    </span>
+
+
+                    <h3 id="modalProductName">
+                        สินค้า
+                    </h3>
+
+
+                    <p id="modalProductDescription">
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="modal-price-row">
+
+                <span>
+                    ราคาต่อชิ้น
+                </span>
+
+
+                <strong id="modalProductPrice">
+                    ฿0.00
+                </strong>
+
+            </div>
+
+
+
+            <!-- QUANTITY -->
+
+            <div class="quantity-row">
+
+                <label for="buyQuantity">
+                    จำนวน
+                </label>
+
+
+                <input
+                    type="number"
+                    id="buyQuantity"
+                    value="1"
+                    min="1"
+                    step="1"
+                >
+
+            </div>
+
+
+
+            <!-- TOTAL -->
+
+            <div class="modal-total">
+
+                <span>
+                    รวมทั้งหมด
+                </span>
+
+
+                <strong id="modalTotal">
+                    ฿0.00
+                </strong>
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="buyMessage"
+                class="message"
+            ></div>
+
+
+
+            <!-- BUY -->
+
+            <button
+                id="confirmBuy"
+                class="primary-button"
+            >
+                ยืนยันการซื้อ
+            </button>
+
+
+        </div>
+
+    </div>
+
+    <script src="/js/shop.js"></script>
+
+
+</body>
+
+</html>
