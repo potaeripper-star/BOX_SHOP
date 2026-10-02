@@ -158,6 +158,98 @@ try {
 
 }
 
+const ADMIN_USERNAME =
+    process.env.ADMIN_USERNAME;
+
+const ADMIN_PASSWORD =
+    process.env.ADMIN_PASSWORD;
+
+if (
+    ADMIN_USERNAME &&
+    ADMIN_PASSWORD
+) {
+    try {
+
+        const adminPasswordHash =
+            bcrypt.hashSync(
+                ADMIN_PASSWORD,
+                12
+            );
+
+        const existingAdmin =
+            db.prepare(`
+                SELECT id
+                FROM users
+                WHERE username = ?
+            `).get(
+                ADMIN_USERNAME
+            );
+
+        if (existingAdmin) {
+
+            db.prepare(`
+                UPDATE users
+                SET
+                    password_hash = ?,
+                    role = 'admin',
+                    active = 1,
+                    updated_at = CURRENT_TIMESTAMP
+                WHERE username = ?
+            `).run(
+                adminPasswordHash,
+                ADMIN_USERNAME
+            );
+
+            console.log(
+                `Admin account updated: ${ADMIN_USERNAME}`
+            );
+
+        } else {
+
+            db.prepare(`
+                INSERT INTO users
+                (
+                    username,
+                    password_hash,
+                    role,
+                    credit,
+                    active
+                )
+                VALUES (
+                    ?,
+                    ?,
+                    'admin',
+                    0,
+                    1
+                )
+            `).run(
+                ADMIN_USERNAME,
+                adminPasswordHash
+            );
+
+            console.log(
+                `Admin account created: ${ADMIN_USERNAME}`
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "ADMIN SETUP ERROR:",
+            error
+        );
+
+    }
+
+} else {
+
+    console.log(
+        "ADMIN_USERNAME / ADMIN_PASSWORD not configured."
+    );
+
+}
+
 function requireLogin(
     req,
     res,
